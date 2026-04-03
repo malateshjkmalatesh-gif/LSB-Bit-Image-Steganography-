@@ -1,0 +1,106 @@
+Project Documentation
+
+Name: MALATESH J KUSAGUR
+Project Title: STEGANOGRAPHY                        
+Date: 15-12-2025
+
+1. Introduction
+
+Steganography is a data-hiding technique used to embed confidential information within a digital medium in such a way that the existence of the data is not noticeable. In this project, image steganography is implemented using the Least Significant Bit (LSB) approach with bitmap (.bmp) images.
+
+The main objective of the project is to hide a secret text file inside a BMP image and later retrieve it successfully, while ensuring that there is no visible change in the appearance of the image.
+
+2. Project Features
+
+* Conceals textual information inside an image securely
+* Preserves the visual quality of the original image
+* Enables accurate extraction of the hidden message
+* Utilizes LSB-based embedding technique
+* Supports lossless BMP image format
+* Operates through command-line interface
+
+3. Tools and Technologies
+
+* Programming Language: C
+* Image Format Used: 24-bit BMP
+* Steganography Technique: Least Significant Bit (LSB)
+* Operating System: Linux / Ubuntu
+* Files Used: encode.c, decode.c, test_encode.c, encode.h, decode.h, common.h, types.h
+
+4. Working Methodology
+
+Encoding Process:
+
+* Read the header information of the input BMP image
+* Insert a predefined magic identifier for validation
+* Embed the size of the secret file into the image
+* Store the secret data bit-by-bit in the LSBs of pixel data
+* Generate the final stego image
+
+Decoding Process:
+
+* Load the stego image
+* Verify the presence of the magic identifier
+* Extract the hidden file size
+* Retrieve secret data from the LSBs
+* Save the recovered data into an output text file
+
+5. Command-Line Execution
+
+Encoding Command:
+./a.out -e beautiful.bmp secret.txt stego.bmp
+
+Decoding Command:
+./a.out -d stego.bmp Output.txt
+
+6. Project Directory Structure
+
+4-SKELETONCODE
+
+-> beautiful.bmp
+-> stego.bmp
+-> secret.txt
+-> Output.txt
+-> encode.c
+-> decode.c
+-> encode.h
+-> decode.h
+-> common.h
+-> main.c
+-> types.h
+-> stego
+
+7. Algorithm Description
+
+Encoding Algorithm:
+
+Start → Read input BMP image and secret file → Verify image capacity → Embed magic identifier → Embed secret file size → Insert secret data into LSBs → Save stego image → Stop
+
+Decoding Algorithm:
+
+Start → Read stego image → Validate magic identifier → Extract secret file size → Retrieve hidden data → Save output text file → Stop
+
+8. Overall Output
+
+The encoding operation successfully embeds the secret text into the BMP image without causing any visible distortion. The decoding operation accurately retrieves the hidden message from the stego image. The extracted text matches the original secret file, confirming the correctness and reliability of the implementation.
+
+9. Applications
+
+* Secure communication of sensitive information
+* Digital watermarking
+* Data protection in defense and forensic systems
+* Hidden data storage and authentication
+
+10. Conclusion
+
+This project effectively demonstrates the concept of image steganography using the LSB technique. It provides a simple and efficient way to hide information inside images while maintaining image quality. The implementation serves as a strong foundation for more advanced steganographic systems.
+
+11. Future Scope
+
+* Extend support to PNG and JPEG formats
+* Integrate encryption before data embedding
+* Develop a graphical user interface (GUI)
+* Implement steganography for audio and video files
+
+
+
